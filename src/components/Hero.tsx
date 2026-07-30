@@ -87,7 +87,7 @@ export default function Hero() {
             <div className="h-full flex flex-col">
               <div className="flex justify-between items-start mb-6 md:mb-8">
                 <div className="flex items-center gap-2 sm:gap-3">
-                  <img src="/logo genbi biru.svg" alt="Logo GenBI" className="h-8 sm:h-12 w-auto" />
+                  <img src="/logos/logo genbi biru.svg" alt="Logo GenBI" className="h-8 sm:h-12 w-auto" />
                   <div>
                     <h3 className="text-[10px] sm:text-sm font-bold text-navy uppercase tracking-wider">KJSM GenBI Sumsel</h3>
                     <p className="text-[9px] sm:text-xs text-slate-500">Kemitraan dan Kerjasama</p>
