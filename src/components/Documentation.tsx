@@ -1,0 +1,45 @@
+export default function Documentation() {
+  const images = [
+    { id: 1, url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Team Meeting", size: "md:col-span-2 md:row-span-2" },
+    { id: 2, url: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Event Documentation", size: "md:col-span-1 md:row-span-1" },
+    { id: 3, url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Discussion", size: "md:col-span-1 md:row-span-1" },
+    { id: 4, url: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Workshop", size: "md:col-span-2 md:row-span-1" },
+  ];
+
+  return (
+    <section className="py-20 px-6 max-w-6xl mx-auto" id="documentation">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-10">
+        <div>
+          <h2 className="text-sm font-bold text-sky uppercase tracking-widest mb-2">Social Proof</h2>
+          <h3 className="text-3xl md:text-4xl font-display font-bold text-navy">
+            Galeri Kegiatan KJSM
+          </h3>
+        </div>
+        <p className="text-slate-500 text-sm max-w-xs mt-4 md:mt-0 text-right hidden md:block">
+          Momen-momen berharga dalam setiap program kerja dan kegiatan divisi kami.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[600px]">
+        {images.map((img) => (
+          <div 
+            key={img.id} 
+            className={`relative rounded-2xl overflow-hidden group cursor-pointer ${img.size}`}
+          >
+            <img 
+              src={img.url} 
+              alt={img.alt} 
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+            />
+            <div className="absolute inset-0 bg-navy/20 group-hover:bg-navy/0 transition-colors duration-500"></div>
+            
+            {/* Hover Caption */}
+            <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-navy/80 via-transparent to-transparent">
+              <p className="text-white font-bold">{img.alt}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
