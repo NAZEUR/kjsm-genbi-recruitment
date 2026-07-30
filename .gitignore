@@ -23,5 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-*.project_brief.md
-
+project_brief.md
