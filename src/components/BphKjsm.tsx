@@ -55,7 +55,7 @@ export default function BphKjsm() {
           <div className="absolute -inset-4 md:-inset-8 border-4 border-dashed border-white/30 rounded-3xl -z-10 group-hover:rotate-1 transition-transform duration-500"></div>
           
           <img 
-            src="/foto kjsm bareng.png" 
+            src="/images/foto kjsm bareng.png" 
             alt="Foto BPH KJSM Bareng" 
             className="w-full h-auto object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500 rounded-2xl" 
           />

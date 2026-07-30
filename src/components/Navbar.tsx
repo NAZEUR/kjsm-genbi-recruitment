@@ -31,7 +31,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center group">
           <img 
-            src={isScrolled ? "/logo genbi putih.svg" : "/logo genbi biru.svg"} 
+            src={isScrolled ? "/logos/logo genbi putih.svg" : "/logos/logo genbi biru.svg"} 
             alt="Logo GenBI" 
             className="h-12 md:h-12 w-auto group-hover:scale-105 transition-transform duration-300 drop-shadow-sm" 
           />

@@ -6,56 +6,56 @@ export default function KesibukanKjsm() {
       id: 1,
       title: "Sibuk Haji & Umroh",
       description: "Alhamdulillah, tiada hari tanpa berdoa di tanah suci untuk kemajuan divisi.",
-      image: "/kesibukan kjsm bercanda/haji umroh.svg",
+      image: "/activities/haji umroh.svg",
       color: "bg-emerald-100"
     },
     {
       id: 2,
       title: "Sibuk Keliling Dunia",
       description: "Mencari inspirasi konten estetik dari berbagai penjuru benua dan samudera.",
-      image: "/kesibukan kjsm bercanda/liburan ke fuji.svg",
+      image: "/activities/liburan ke fuji.svg",
       color: "bg-sky-100"
     },
     {
       id: 3,
       title: "Sibuk Memasak",
       description: "Memasak ide-ide kreatif (dan kadang-kadang mie instan pas deadline).",
-      image: "/kesibukan kjsm bercanda/sibuk memasak.svg",
+      image: "/activities/sibuk memasak.svg",
       color: "bg-orange-100"
     },
     {
       id: 4,
       title: "Sibuk Bikin Film",
       description: "Menyiapkan mahakarya sekelas sutradara Hollywood dengan budget seadanya.",
-      image: "/kesibukan kjsm bercanda/bikin film.svg",
+      image: "/activities/bikin film.svg",
       color: "bg-purple-100"
     },
     {
       id: 5,
       title: "Atlet Lari Nasional",
       description: "Rutinitas lari pagi... lari dari kenyataan, tanggung jawab, dan revisian.",
-      image: "/kesibukan kjsm bercanda/jadi atlet lari, lari dari kenyataan.svg",
+      image: "/activities/jadi atlet lari, lari dari kenyataan.svg",
       color: "bg-red-100"
     },
     {
       id: 6,
       title: "Main Salju di Fuji",
       description: "Saking dinginnya ide kreatif kami, sampai bisa bikin salju turun di Gunung Fuji.",
-      image: "/kesibukan kjsm bercanda/main salju di gunung fuji.svg",
+      image: "/activities/main salju di gunung fuji.svg",
       color: "bg-cyan-100"
     },
     {
       id: 7,
       title: "Sibuk Nonton Bola",
       description: "Lebih jago menganalisis formasi nobar daripada bikin formasi konten.",
-      image: "/kesibukan kjsm bercanda/nonton pertandingan.svg",
+      image: "/activities/nonton pertandingan.svg",
       color: "bg-green-100"
     },
     {
       id: 8,
       title: "Sibuk Jadi Pembereontak",
       description: "Mendobrak batas kemalasan, pantang menyerah, dan terus berkarya tanpa henti!",
-      image: "/kesibukan kjsm bercanda/pembereontak.svg",
+      image: "/activities/pembereontak.svg",
       color: "bg-slate-200"
     }
   ];

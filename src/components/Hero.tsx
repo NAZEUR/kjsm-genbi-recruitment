@@ -227,7 +227,7 @@ export default function Hero() {
               {/* Airport Working Image - Moved to Right Panel */}
               <div className="w-full relative group overflow-hidden rounded-2xl shadow-lg border border-white shrink-0 mb-6 mt-2">
                 <img 
-                  src="/kjsm kerja bandara.png" 
+                  src="/images/kjsm kerja bandara.png" 
                   alt="KJSM Kerja Bandara" 
                   className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                 />
