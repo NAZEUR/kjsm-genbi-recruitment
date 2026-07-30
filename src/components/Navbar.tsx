@@ -51,7 +51,9 @@ export default function Navbar() {
             </a>
           ))}
           <a 
-            href="#register" 
+            href="https://forms.gle/nB6yotbkgvDPMSa86" 
+            target="_blank"
+            rel="noopener noreferrer"
             className={`font-bold px-7 py-2.5 rounded-full hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:shadow-md transition-all duration-300 shadow-md ring-2 ring-transparent ${
               isScrolled 
                 ? 'bg-gold text-navy hover:bg-yellow-400' 
@@ -95,7 +97,9 @@ export default function Navbar() {
             </a>
           ))}
           <a 
-            href="#register" 
+            href="https://forms.gle/nB6yotbkgvDPMSa86" 
+            target="_blank"
+            rel="noopener noreferrer"
             className={`font-bold p-3 rounded-xl text-center shadow-md mt-2 ${
               isScrolled ? 'bg-gold text-navy hover:bg-yellow-400' : 'bg-navy text-white hover:bg-navy/90'
             }`}

@@ -203,21 +203,21 @@ export default function Hero() {
                   </div>
                 ) : (
                   <div className="grid grid-cols-4 gap-1 sm:gap-2 text-center">
-                    <div className="bg-white/80 p-2 rounded-lg shadow-sm">
-                      <p className="text-lg sm:text-xl font-bold text-navy">{timeLeft.days}</p>
-                      <p className="text-[9px] sm:text-[10px] uppercase text-slate-500">Hari</p>
+                    <div className="bg-white/80 p-2 rounded-lg shadow-sm border-b-2 border-coral/20">
+                      <p className="text-lg sm:text-xl font-black text-coral">{timeLeft.days}</p>
+                      <p className="text-[9px] sm:text-[10px] uppercase text-navy font-bold">Hari</p>
                     </div>
-                    <div className="bg-white/80 p-2 rounded-lg shadow-sm">
-                      <p className="text-lg sm:text-xl font-bold text-navy">{timeLeft.hours}</p>
-                      <p className="text-[9px] sm:text-[10px] uppercase text-slate-500">Jam</p>
+                    <div className="bg-white/80 p-2 rounded-lg shadow-sm border-b-2 border-coral/20">
+                      <p className="text-lg sm:text-xl font-black text-coral">{timeLeft.hours}</p>
+                      <p className="text-[9px] sm:text-[10px] uppercase text-navy font-bold">Jam</p>
                     </div>
-                    <div className="bg-white/80 p-2 rounded-lg shadow-sm">
-                      <p className="text-lg sm:text-xl font-bold text-navy">{timeLeft.minutes}</p>
-                      <p className="text-[9px] sm:text-[10px] uppercase text-slate-500">Menit</p>
+                    <div className="bg-white/80 p-2 rounded-lg shadow-sm border-b-2 border-coral/20">
+                      <p className="text-lg sm:text-xl font-black text-coral">{timeLeft.minutes}</p>
+                      <p className="text-[9px] sm:text-[10px] uppercase text-navy font-bold">Menit</p>
                     </div>
-                    <div className="bg-white/80 p-2 rounded-lg shadow-sm">
-                      <p className="text-lg sm:text-xl font-bold text-navy">{timeLeft.seconds}</p>
-                      <p className="text-[9px] sm:text-[10px] uppercase text-slate-500">Detik</p>
+                    <div className="bg-white/80 p-2 rounded-lg shadow-sm border-b-2 border-coral/20">
+                      <p className="text-lg sm:text-xl font-black text-coral">{timeLeft.seconds}</p>
+                      <p className="text-[9px] sm:text-[10px] uppercase text-navy font-bold">Detik</p>
                     </div>
                   </div>
                 )}
@@ -237,10 +237,14 @@ export default function Hero() {
                 </p>
               </div>
             </div>
-
-            <button className="w-full bg-gold hover:bg-yellow-400 text-navy font-bold py-4 rounded-xl transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-gold/30 mt-auto">
+            <a 
+              href="https://forms.gle/nB6yotbkgvDPMSa86"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center w-full bg-gold hover:bg-yellow-400 text-navy font-bold py-4 rounded-xl transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-gold/30 mt-auto"
+            >
               Boarding Sekarang
-            </button>
+            </a>
           </div>
         </div>
       </div>

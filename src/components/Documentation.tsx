@@ -2,10 +2,10 @@ import { Star, Camera } from 'lucide-react';
 
 export default function Documentation() {
   const images = [
-    { id: 1, url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Team Meeting", size: "md:col-span-2 md:row-span-2" },
-    { id: 2, url: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Event Documentation", size: "md:col-span-1 md:row-span-1" },
-    { id: 3, url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Discussion", size: "md:col-span-1 md:row-span-1" },
-    { id: 4, url: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Workshop", size: "md:col-span-2 md:row-span-1" },
+    { id: 1, url: "public/documentasi1.jpeg", alt: "Refreshing KJSM", size: "md:col-span-2 md:row-span-2" },
+    { id: 2, url: "public/documentasi2.jpeg", alt: "Playtopia With KJSM", size: "md:col-span-1 md:row-span-1" },
+    { id: 3, url: "public/documentasi3.jpeg", alt: "Documentation with BPH KJSM 2025", size: "md:col-span-1 md:row-span-1" },
+    { id: 4, url: "public/documentasi4.jpeg", alt: "After Event", size: "md:col-span-2 md:row-span-1" },
   ];
 
   return (

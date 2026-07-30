@@ -25,8 +25,8 @@ export default function Footer() {
         <div className="md:text-right flex flex-col md:items-end justify-center">
           <h4 className="font-bold mb-4">Hubungi Kami</h4>
           <div className="flex flex-col gap-2 text-sm text-slate-400">
-            <a href="https://instagram.com/genbisumsel" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              @genbisumsel
+            <a href="https://instagram.com/pembereontak" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              @pembereontak
             </a>
             <p>Palembang, Sumatera Selatan</p>
           </div>
