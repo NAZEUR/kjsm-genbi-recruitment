@@ -27,10 +27,10 @@ export default function BphKjsm() {
       <div className="absolute bottom-20 right-[20%] text-white/40">
         <Star size={30} fill="currentColor" className="animate-spin" style={{ animationDuration: '8s' }} />
       </div>
-      <div className="absolute top-40 right-[8%] text-coral/40 animate-bounce" style={{ animationDuration: '2.5s' }}>
+      <div className="absolute top-40 right-[8%] text-white/40 animate-bounce" style={{ animationDuration: '2.5s' }}>
         <MapPin size={45} />
       </div>
-      <div className="absolute bottom-40 right-[5%] text-navy/20">
+      <div className="absolute bottom-40 right-[5%] text-white/20">
         <Compass size={100} strokeWidth={1} className="animate-spin" style={{ animationDuration: '15s' }} />
       </div>
 
