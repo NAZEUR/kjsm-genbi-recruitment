@@ -1,4 +1,3 @@
-import React from 'react';
 import { Plane, Star, Cloud, Compass, MapPin } from 'lucide-react';
 
 export default function BphKjsm() {

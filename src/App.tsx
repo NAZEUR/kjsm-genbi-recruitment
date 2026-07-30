@@ -9,6 +9,7 @@ import BphKjsm from './components/BphKjsm';
 import AboutKjsm from './components/AboutKjsm';
 import WhatIsKjsm from './components/WhatIsKjsm';
 import Documentation from './components/Documentation';
+import KesibukanKjsm from './components/KesibukanKjsm';
 import CtaSection from './components/CtaSection';
 import Footer from './components/Footer';
 
@@ -78,6 +79,7 @@ function App() {
         <AboutKjsm />
         <WhatIsKjsm />
         <Documentation />
+        <KesibukanKjsm />
         <CtaSection />
       </main>
       <Footer />
