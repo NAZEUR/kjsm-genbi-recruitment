@@ -31,4 +31,33 @@
   .glass-card {
     @apply bg-white/80 backdrop-blur-sm border border-white/50 shadow-md shadow-navy/5 rounded-xl;
   }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(var(--tw-rotate, 0deg)); }
+    50% { transform: translateY(-15px) rotate(calc(var(--tw-rotate, 0deg) + 2deg)); }
+  }
+
+  @keyframes cloud-move {
+    0% { transform: translateX(-20vw); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.3; }
+    100% { transform: translateX(120vw); opacity: 0; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 7s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .animate-cloud {
+    animation: cloud-move 25s linear infinite;
+  }
+  
+  .animate-cloud-slow {
+    animation: cloud-move 40s linear infinite;
+  }
 }

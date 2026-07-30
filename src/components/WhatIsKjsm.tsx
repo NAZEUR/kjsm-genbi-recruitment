@@ -1,4 +1,4 @@
-import { Handshake, Megaphone, Palette } from 'lucide-react';
+import { Handshake, Megaphone, Palette, Cloud, Plane } from 'lucide-react';
 
 export default function WhatIsKjsm() {
   const tasks = [
@@ -23,8 +23,22 @@ export default function WhatIsKjsm() {
   ];
 
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto" id="tasks">
-      <div className="text-center mb-16">
+    <section className="py-20 px-6 relative overflow-hidden" id="tasks">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        <div className="absolute top-32 text-sky/10 animate-cloud-slow">
+          <Cloud size={150} fill="currentColor" />
+        </div>
+        <div className="absolute bottom-10 text-navy/5 animate-cloud" style={{ animationDelay: '3s', animationDuration: '35s' }}>
+          <Cloud size={100} fill="currentColor" />
+        </div>
+        <div className="absolute top-1/2 right-10 text-sky opacity-15 animate-float-delayed transform -rotate-45">
+          <Plane size={60} />
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="text-center mb-16">
         <h2 className="inline-block bg-gold text-navy font-bold px-6 py-2 rounded-full uppercase tracking-widest text-sm mb-4">
           Tugas Pokok Divisi
         </h2>
@@ -51,6 +65,7 @@ export default function WhatIsKjsm() {
             </p>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );

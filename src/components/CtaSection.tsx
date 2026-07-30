@@ -1,4 +1,4 @@
-import { PlaneTakeoff } from 'lucide-react';
+import { PlaneTakeoff, Plane, Cloud } from 'lucide-react';
 
 export default function CtaSection() {
   return (
@@ -6,7 +6,23 @@ export default function CtaSection() {
       {/* Decorative dashed path */}
       <div className="absolute top-1/2 left-0 right-0 border-t-2 border-dashed border-sky/30 -z-10"></div>
       
-      <div className="max-w-4xl mx-auto text-center">
+      {/* Animated Elements */}
+      <div className="absolute inset-0 pointer-events-none -z-20 overflow-hidden">
+        <div className="absolute top-10 text-sky/20 animate-cloud">
+          <Cloud size={100} fill="currentColor" />
+        </div>
+        <div className="absolute bottom-10 right-0 text-navy/10 animate-cloud-slow">
+          <Cloud size={80} fill="currentColor" />
+        </div>
+        <div className="absolute top-1/4 left-1/4 text-sky opacity-20 animate-float transform -rotate-12">
+          <Plane size={40} />
+        </div>
+        <div className="absolute bottom-1/4 right-[15%] text-gold opacity-20 animate-float-delayed transform rotate-[60deg]">
+          <Plane size={50} />
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="glass-panel p-12 relative overflow-hidden group">
           {/* Background animation element */}
           <div className="absolute -inset-10 bg-gradient-to-r from-sky/10 via-gold/10 to-coral/10 blur-3xl opacity-50"></div>

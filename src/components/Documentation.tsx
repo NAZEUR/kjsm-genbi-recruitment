@@ -1,3 +1,5 @@
+import { Star, Camera } from 'lucide-react';
+
 export default function Documentation() {
   const images = [
     { id: 1, url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Team Meeting", size: "md:col-span-2 md:row-span-2" },
@@ -7,8 +9,22 @@ export default function Documentation() {
   ];
 
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto" id="documentation">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-10">
+    <section className="py-20 px-6 relative overflow-hidden" id="documentation">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        <svg className="absolute w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-100,500 Q 500,-100 1200,400 T 2000,100" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="15, 20" className="text-sky" />
+        </svg>
+        <div className="absolute top-20 right-[15%] text-gold opacity-30 animate-pulse" style={{ animationDelay: '1s' }}>
+          <Star size={24} fill="currentColor" />
+        </div>
+        <div className="absolute bottom-1/4 left-10 text-navy opacity-10 animate-float transform rotate-12">
+          <Camera size={40} />
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10">
         <div>
           <h2 className="text-sm font-bold text-sky uppercase tracking-widest mb-2">Social Proof</h2>
           <h3 className="text-3xl md:text-4xl font-display font-bold text-navy">
@@ -39,6 +55,7 @@ export default function Documentation() {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );
