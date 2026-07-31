@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, CheckCircle2, AlertCircle, Loader2, User, CreditCard, GraduationCap, Phone, AtSign, Briefcase, Link as LinkIcon, FileText, MessageCircle, PartyPopper, PlaneTakeoff } from 'lucide-react';
+import { Upload, CheckCircle2, AlertCircle, Loader2, User, CreditCard, GraduationCap, Phone, AtSign, Briefcase, Link as LinkIcon, FileText, MessageCircle, PlaneTakeoff } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 export default function RegistrationForm() {
@@ -80,7 +80,7 @@ export default function RegistrationForm() {
       const fileName = `${Date.now()}_${formData.name.replace(/\s+/g, '_')}.${fileExt}`;
       const filePath = `${fileName}`;
 
-      const { error: uploadError, data: uploadData } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from('applicant_files')
         .upload(filePath, file);
 

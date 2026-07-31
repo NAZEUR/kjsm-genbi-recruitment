@@ -1,5 +1,5 @@
 import RegistrationForm from './RegistrationForm';
-import { Plane, Star, Cloud, Sparkles, Compass } from 'lucide-react';
+import { Plane, Star, Cloud } from 'lucide-react';
 
 export default function RegistrationSection() {
   return (
