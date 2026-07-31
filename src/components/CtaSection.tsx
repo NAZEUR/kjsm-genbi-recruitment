@@ -1,4 +1,5 @@
 import { PlaneTakeoff, Ticket, Plane, Cloud } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function CtaSection() {
   return (
@@ -43,15 +44,13 @@ export default function CtaSection() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-                <a 
-                  href="https://forms.gle/nB6yotbkgvDPMSa86" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <Link 
+                  to="/register" 
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gold text-navy font-black text-lg px-8 py-4 rounded-2xl hover:bg-yellow-400 transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-gold/20 group/btn"
                 >
                   Boarding Sekarang 
                   <PlaneTakeoff size={24} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                </a>
+                </Link>
               </div>
               
            

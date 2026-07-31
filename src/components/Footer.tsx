@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <img src="/logos/logo genbi putih.svg" alt="GenBI" className="h-12 w-auto" />
+            <img src="/images/Logo GenBI Putih.png" alt="GenBI" className="h-12 w-auto" />
             <div>
               <h3 className="font-bold text-lg">KJSM GenBI Sumsel</h3>
               <p className="text-sky text-sm">Kemitraan dan Kerjasama</p>

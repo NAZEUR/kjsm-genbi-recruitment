@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Plane, CalendarDays, Camera, Video, PenTool, Users, Mic, Star, Cloud } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const REGISTRATION_START = new Date('2026-08-03T00:00:00+07:00').getTime();
 
@@ -237,14 +238,12 @@ export default function Hero() {
                 </p>
               </div>
             </div>
-            <a 
-              href="https://forms.gle/nB6yotbkgvDPMSa86"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link 
+              to="/register"
               className="block text-center w-full bg-gold hover:bg-yellow-400 text-navy font-bold py-4 rounded-xl transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-gold/30 mt-auto"
             >
               Boarding Sekarang
-            </a>
+            </Link>
           </div>
         </div>
       </div>
