@@ -36,7 +36,7 @@ export default function AboutKjsm() {
         <div className="flex flex-col gap-6">
           <div className="glass-panel p-8 flex items-center justify-center flex-1">
             <div className="text-center">
-              <img src="/logos/logo genbi biru.svg" alt="GenBI" className="h-20 w-auto mx-auto mb-4 opacity-80" />
+              <img src="/images/Logo GenBI Biru.png" alt="GenBI" className="h-20 w-auto mx-auto mb-4 opacity-80" />
               <p className="text-sm font-bold text-navy">Energi untuk Negeri</p>
             </div>
           </div>

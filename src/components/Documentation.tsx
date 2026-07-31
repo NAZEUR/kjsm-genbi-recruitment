@@ -2,10 +2,10 @@ import { Star, Camera } from 'lucide-react';
 
 export default function Documentation() {
   const images = [
-    { id: 1, url: "/documentation/documentasi1.jpeg", alt: "Refreshing KJSM", size: "md:col-span-2 md:row-span-2" },
-    { id: 2, url: "/documentation/documentasi2.jpeg", alt: "Playtopia With KJSM", size: "md:col-span-1 md:row-span-1" },
-    { id: 3, url: "/documentation/documentasi3.jpeg", alt: "Documentation with BPH KJSM 2025", size: "md:col-span-1 md:row-span-1" },
-    { id: 4, url: "/documentation/documentasi4.jpeg", alt: "After Event", size: "md:col-span-2 md:row-span-1" },
+    { id: 1, url: "/documentation/documentasi1.webp", alt: "Refreshing KJSM", size: "md:col-span-2 md:row-span-2" },
+    { id: 2, url: "/documentation/documentasi2.webp", alt: "Playtopia With KJSM", size: "md:col-span-1 md:row-span-1" },
+    { id: 3, url: "/documentation/documentasi3.webp", alt: "Documentation with BPH KJSM 2025", size: "md:col-span-1 md:row-span-1" },
+    { id: 4, url: "/documentation/documentasi4.webp", alt: "After Event", size: "md:col-span-2 md:row-span-1" },
   ];
 
   return (
