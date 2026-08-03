@@ -17,6 +17,7 @@ export default function RegistrationForm() {
   
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [fileError, setFileError] = useState('');
 
   const [timeLeft, setTimeLeft] = useState<{ days: number, hours: number, minutes: number, seconds: number } | null>(null);
   const [isClosed, setIsClosed] = useState(false);
@@ -57,16 +58,16 @@ export default function RegistrationForm() {
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0];
       if (selectedFile.size > 2 * 1024 * 1024) {
-        setErrorMessage('Ukuran file maksimal 2MB');
+        setFileError('Ukuran file maksimal 2MB');
         setFile(null);
         return;
       }
       if (selectedFile.type !== 'application/pdf') {
-        setErrorMessage('Format file harus PDF');
+        setFileError('Format file harus PDF');
         setFile(null);
         return;
       }
-      setErrorMessage('');
+      setFileError('');
       setFile(selectedFile);
     }
   };
@@ -278,7 +279,7 @@ export default function RegistrationForm() {
             </div>
 
             <div className="space-y-2 group">
-              <label htmlFor="nim" className="block text-sm font-medium text-slate-700 group-hover:text-gold transition-colors">NIM / NPM</label>
+              <label htmlFor="nim" className="block text-sm font-medium text-slate-700 group-hover:text-gold transition-colors">NIM</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-gold transition-colors"><CreditCard size={18} /></div>
                 <input type="text" id="nim" name="nim" required pattern="[0-9]+" value={formData.nim} onChange={handleChange} placeholder="Contoh: 0901234567" className="w-full bg-white border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all shadow-sm hover:border-gold/50" />
@@ -361,7 +362,7 @@ export default function RegistrationForm() {
               <label className="block text-sm font-medium text-slate-700">Upload CV <span className="text-red-500">*</span></label>
               <div className="relative group/upload">
                 <input type="file" id="file" accept=".pdf" required onChange={handleFileChange} className="hidden" />
-                <label htmlFor="file" className={`flex flex-col items-center justify-center w-full h-40 border-2 border-dashed rounded-2xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md ${file ? 'border-emerald-400 bg-emerald-50' : 'border-slate-300 bg-white group-hover/upload:border-gold group-hover/upload:bg-gold/5'}`}>
+                <label htmlFor="file" className={`flex flex-col items-center justify-center w-full h-40 border-2 border-dashed rounded-2xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md ${fileError ? 'border-red-400 bg-red-50' : file ? 'border-emerald-400 bg-emerald-50' : 'border-slate-300 bg-white group-hover/upload:border-gold group-hover/upload:bg-gold/5'}`}>
                   <div className="flex flex-col items-center justify-center pt-5 pb-6 px-4 text-center">
                     {file ? (
                       <div className="scale-100 transition-transform">
@@ -383,6 +384,12 @@ export default function RegistrationForm() {
                   </div>
                 </label>
               </div>
+              {fileError && (
+                <div className="flex items-center gap-2 text-red-500 bg-red-50 border border-red-100 px-3 py-2 rounded-xl text-sm mt-2 animate-pulse">
+                  <AlertCircle size={16} className="shrink-0" />
+                  <p>{fileError}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
