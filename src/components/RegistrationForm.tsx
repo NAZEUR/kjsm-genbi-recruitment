@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Upload, CheckCircle2, AlertCircle, Loader2, User, CreditCard, GraduationCap, Phone, AtSign, Briefcase, Link as LinkIcon, FileText, MessageCircle, PlaneTakeoff } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Upload, CheckCircle2, AlertCircle, Loader2, User, CreditCard, GraduationCap, Phone, AtSign, Briefcase, Link as LinkIcon, FileText, MessageCircle, PlaneTakeoff, Clock } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 export default function RegistrationForm() {
@@ -12,12 +12,41 @@ export default function RegistrationForm() {
     division: '',
     motivation: '',
     portfolio_url: '',
-    task_url: '',
   });
   const [file, setFile] = useState<File | null>(null);
   
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const [timeLeft, setTimeLeft] = useState<{ days: number, hours: number, minutes: number, seconds: number } | null>(null);
+  const [isClosed, setIsClosed] = useState(false);
+
+  useEffect(() => {
+    // Batas waktu pendaftaran: 6 Agustus 2026 jam 23:59:59 WIB (GMT+7)
+    const deadline = new Date('2026-08-06T23:59:59+07:00').getTime();
+
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const difference = deadline - now;
+
+      if (difference <= 0) {
+        setIsClosed(true);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        setIsClosed(false);
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        });
+      }
+    };
+
+    updateTimer();
+    const timerId = setInterval(updateTimer, 1000);
+    return () => clearInterval(timerId);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -55,12 +84,6 @@ export default function RegistrationForm() {
       
       if (!/^[0-9]{9,15}$/.test(formData.whatsapp)) {
         throw new Error('No. WhatsApp tidak valid. Harus berupa angka (9-15 digit).');
-      }
-      
-      try {
-        new URL(formData.task_url);
-      } catch (_) {
-        throw new Error('URL Pengumpulan Tugas tidak valid. Pastikan memakai format yang benar (misal: https://...)');
       }
       
       if (formData.portfolio_url) {
@@ -106,7 +129,6 @@ export default function RegistrationForm() {
             division: formData.division,
             motivation: formData.motivation,
             portfolio_url: formData.portfolio_url,
-            task_url: formData.task_url,
             cv_url: publicUrl,
           }
         ]);
@@ -118,7 +140,7 @@ export default function RegistrationForm() {
       setStatus('success');
       setFormData({ 
         name: '', nim: '', asal_komsat: '', whatsapp: '', instagram: '', 
-        division: '', motivation: '', portfolio_url: '', task_url: '' 
+        division: '', motivation: '', portfolio_url: '' 
       });
       setFile(null);
       
@@ -189,19 +211,55 @@ export default function RegistrationForm() {
         </div>
         <h3 className="text-3xl md:text-4xl font-display font-black text-navy mb-3">Isi Data Keberangkatan</h3>
         <p className="text-slate-500 text-lg max-w-2xl mx-auto">Pastikan semua data terisi dengan benar. Siapkan tiket (CV) dan paspor (Portofolio) terbaik Anda.</p>
+        
+        {timeLeft && !isClosed && (
+          <div className="flex justify-center gap-2 md:gap-4 mt-8">
+            <div className="bg-white border border-slate-200 rounded-2xl p-3 md:p-4 text-center min-w-[70px] md:min-w-[90px] shadow-sm">
+              <div className="text-2xl md:text-4xl font-black text-navy font-display">{timeLeft.days}</div>
+              <div className="text-xs md:text-sm font-bold text-sky uppercase tracking-wider mt-1">Hari</div>
+            </div>
+            <div className="text-2xl md:text-4xl font-black text-slate-300 self-center">:</div>
+            <div className="bg-white border border-slate-200 rounded-2xl p-3 md:p-4 text-center min-w-[70px] md:min-w-[90px] shadow-sm">
+              <div className="text-2xl md:text-4xl font-black text-navy font-display">{timeLeft.hours}</div>
+              <div className="text-xs md:text-sm font-bold text-sky uppercase tracking-wider mt-1">Jam</div>
+            </div>
+            <div className="text-2xl md:text-4xl font-black text-slate-300 self-center">:</div>
+            <div className="bg-white border border-slate-200 rounded-2xl p-3 md:p-4 text-center min-w-[70px] md:min-w-[90px] shadow-sm">
+              <div className="text-2xl md:text-4xl font-black text-navy font-display">{timeLeft.minutes}</div>
+              <div className="text-xs md:text-sm font-bold text-sky uppercase tracking-wider mt-1">Menit</div>
+            </div>
+            <div className="text-2xl md:text-4xl font-black text-slate-300 self-center">:</div>
+            <div className="bg-white border border-slate-200 rounded-2xl p-3 md:p-4 text-center min-w-[70px] md:min-w-[90px] shadow-sm">
+              <div className="text-2xl md:text-4xl font-black text-navy font-display">{timeLeft.seconds}</div>
+              <div className="text-xs md:text-sm font-bold text-sky uppercase tracking-wider mt-1">Detik</div>
+            </div>
+          </div>
+        )}
       </div>
 
-      {status === 'error' && (
-        <div className="mb-8 bg-red-50 border border-red-200 p-4 rounded-2xl flex items-start gap-3 relative z-10 animate-pulse">
-          <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={24} />
-          <div>
-            <h5 className="text-red-700 font-bold mb-1">Gagal Mengirim Data</h5>
-            <p className="text-red-600/80 text-sm">{errorMessage}</p>
+      {isClosed ? (
+        <div className="bg-slate-50 border border-slate-100 rounded-3xl p-8 md:p-12 text-center shadow-inner relative z-10 mt-8">
+          <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+            <Clock size={40} className="text-red-500 animate-pulse" />
           </div>
+          <h4 className="text-3xl font-display font-black text-navy mb-4">Pendaftaran Telah Ditutup</h4>
+          <p className="text-slate-600 text-lg max-w-lg mx-auto">
+            Mohon maaf, batas waktu pendaftaran Kru KJSM telah berakhir. Nantikan kesempatan berikutnya!
+          </p>
         </div>
-      )}
+      ) : (
+        <>
+          {status === 'error' && (
+            <div className="mb-8 bg-red-50 border border-red-200 p-4 rounded-2xl flex items-start gap-3 relative z-10 animate-pulse">
+              <AlertCircle className="text-red-500 shrink-0 mt-0.5" size={24} />
+              <div>
+                <h5 className="text-red-700 font-bold mb-1">Gagal Mengirim Data</h5>
+                <p className="text-red-600/80 text-sm">{errorMessage}</p>
+              </div>
+            </div>
+          )}
 
-      <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+          <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
         
         {/* SECTION 1: DATA DIRI */}
         <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 group/section">
@@ -290,23 +348,13 @@ export default function RegistrationForm() {
           </h4>
 
           <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2 group">
-                <label htmlFor="task_url" className="block text-sm font-medium text-slate-700 group-hover:text-emerald-500 transition-colors">URL Pengumpulan Tugas Karya <span className="text-red-500">*</span></label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-500 transition-colors"><LinkIcon size={18} /></div>
-                  <input type="url" id="task_url" name="task_url" required value={formData.task_url} onChange={handleChange} placeholder="https://link-tugas-kamu.com" className="w-full bg-white border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all shadow-sm hover:border-emerald-500/50" />
-                </div>
-                <p className="text-xs text-slate-500 mt-1">Sertakan link url yang berisi tugas syarat wajib. Pastikan akses publik.</p>
+            <div className="space-y-2 group">
+              <label htmlFor="portfolio_url" className="block text-sm font-medium text-slate-700 group-hover:text-emerald-500 transition-colors">URL Portofolio <span className="text-slate-400 font-normal">(Opsional)</span></label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-500 transition-colors"><LinkIcon size={18} /></div>
+                <input type="url" id="portfolio_url" name="portfolio_url" value={formData.portfolio_url} onChange={handleChange} placeholder="https://link-portofolio.com" className="w-full bg-white border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all shadow-sm hover:border-emerald-500/50" />
               </div>
-
-              <div className="space-y-2 group">
-                <label htmlFor="portfolio_url" className="block text-sm font-medium text-slate-700 group-hover:text-emerald-500 transition-colors">URL Portofolio <span className="text-slate-400 font-normal">(Opsional)</span></label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-500 transition-colors"><LinkIcon size={18} /></div>
-                  <input type="url" id="portfolio_url" name="portfolio_url" value={formData.portfolio_url} onChange={handleChange} placeholder="https://link-portofolio.com" className="w-full bg-white border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all shadow-sm hover:border-emerald-500/50" />
-                </div>
-              </div>
+              <p className="text-xs text-slate-500 mt-1">Mengumpulkan portofolio akan memberikan <span className="font-bold text-emerald-600">nilai tambah</span>.</p>
             </div>
 
             <div className="space-y-3 pt-2">
@@ -354,6 +402,8 @@ export default function RegistrationForm() {
           
         </div>
       </form>
+        </>
+      )}
     </div>
   );
 }
