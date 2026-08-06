@@ -33,8 +33,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="text-center text-slate-500 text-xs mt-12 mb-4">
-        &copy; {new Date().getFullYear()} KJSM GenBI Sumsel. All rights reserved.
+      <div className="text-center text-slate-500 text-xs mt-12 mb-4 flex flex-col items-center gap-2">
+        <p>
+          Create by Nabila Nurhusna Yap <a href="https://instagram.com/nabila.ny_" target="_blank" rel="noopener noreferrer" className="text-sky hover:text-white transition-colors">@nabila.ny_</a>
+        </p>
+        <p>&copy; {new Date().getFullYear()} KJSM GenBI Sumsel. All rights reserved.</p>
       </div>
     </footer>
   );

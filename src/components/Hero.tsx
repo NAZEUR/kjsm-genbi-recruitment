@@ -222,7 +222,7 @@ export default function Hero() {
                     </div>
                   </div>
                 )}
-                <p className="text-[10px] sm:text-xs text-center md:text-left text-slate-500 mt-3 font-bold">Senin, 3 - 6 Agustus 2026 WIB</p>
+                <p className="text-[10px] sm:text-xs text-center md:text-left text-slate-500 mt-3 font-bold">Senin, 3 Agustus 2026 - Jumat, 7 Agustus 2026 15:00 WIB</p>
               </div>
               
               {/* Airport Working Image - Moved to Right Panel */}
