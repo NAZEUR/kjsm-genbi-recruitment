@@ -23,8 +23,8 @@ export default function RegistrationForm() {
   const [isClosed, setIsClosed] = useState(false);
 
   useEffect(() => {
-    // Batas waktu pendaftaran: 7 Agustus 2026 jam 15:00:00 WIB (GMT+7)
-    const deadline = new Date('2026-08-07T15:00:00+07:00').getTime();
+    // Batas waktu pendaftaran: 7 Agustus 2026 jam 16:00:00 WIB (GMT+7)
+    const deadline = new Date('2026-08-07T16:00:00+07:00').getTime();
 
     const updateTimer = () => {
       const now = new Date().getTime();
